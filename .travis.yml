@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "0.10"
+notifications:
+  webhooks:
+    urls:
+      - http://webhooks.codevine.io/volunteer-app
+    on_failure: always
+    on_success: always
+addons:
+  sauce_connect:
+    username: codevine
+    access_key: 6145a59e-8d0e-45d3-94ff-dec50b4085a3
+before_install:
+  - npm install -g forever
+  - npm install -g grunt-cli
+before_script:
+  - forever start app.js
+  - sleep 5
+  - forever logs 0
+after_success:
+  - forever stopall
+after_failure:
+  - forever logs 0

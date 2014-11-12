@@ -1,0 +1,21 @@
+{
+  "name": "homework-planner",
+  "description": "Node webapp to help people get matched with volunteer opporutunities",
+  "version": "0.0.1",
+  "homepage": "https://github.com/codevine/volunteer-app",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codevine/volunteer-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codevine/volunteer-app/issues"
+  },
+  "keywords": [
+  ],
+  "scripts": {
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
