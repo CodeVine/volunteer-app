@@ -15,7 +15,7 @@ before_install:
   - npm install -g forever
   - npm install -g grunt-cli
 before_script:
-  - forever start app.js
+  - forever start server.js
   - sleep 5
   - forever logs 0
 after_success:
