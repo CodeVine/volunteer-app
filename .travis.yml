@@ -4,7 +4,7 @@ node_js:
 notifications:
   webhooks:
     urls:
-      - http://webhooks.codevine.io/volunteer-app
+      - http://webhooks.codevine.io/
     on_failure: always
     on_success: always
 addons:
@@ -17,7 +17,6 @@ before_install:
 before_script:
   - forever start server.js
   - sleep 5
-  - forever logs 0
 after_success:
   - forever stopall
 after_failure:
