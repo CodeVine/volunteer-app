@@ -1,3 +1,3 @@
 exports.home = function(req, res) {
-    res.sendStatus(200);
+    res.render('main.html', {title: 'Hello World'});
 };
