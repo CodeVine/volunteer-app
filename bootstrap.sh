@@ -9,10 +9,20 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 
 # Update system and install needed things
 apt-get update
-apt-get -y dist-upgrade
-apt-get -y install nodejs mongodb-org  g++ flex bison gperf ruby perl libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev libpng-dev libjpeg-dev
+apt-get -q -y dist-upgrade
+apt-get -q -y install nodejs mongodb-org g++ flex bison gperf ruby perl libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev libpng-dev libjpeg-dev
 
 # Get latest phantom binary
-# Waiting until builders are online
-#wget -O /usr/bin/phantomjs  http://build1.codevine.io/phantomjs
-#chmod +x /usr/bin/phantomjs
+wget -nv -O /usr/bin/phantomjs  http://build1.codevine.io/phantomjs
+chmod +x /usr/bin/phantomjs
+
+# Install global npm modules
+npm install -g forever
+npm install -g grunt-cli
+npm install -g karma-cli
+
+# Start app with forever
+cd /home/vagrant/volunteer-app
+chmod 777 -R .npm/
+npm install
+forever start -w server.js
