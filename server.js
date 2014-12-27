@@ -1,5 +1,6 @@
 var express = require('express');
 var engines = require('consolidate');
+var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 var engines = require('consolidate');
@@ -13,12 +14,19 @@ app.set('views', path.join(__dirname, '/app/views'));
 app.engine('html', engines.handlebars);
 app.set('view engine', 'html');
 
+//Lets us use application/x-www-form-urlencoded POST requests
+app.use(bodyParser.urlencoded({extended: false}));
+
 //I always hated this thing
 app.disable('x-powered-by');
 
-//Main page
+//Login page
 app.get('/', routes.home);
 
+//Login check page
+app.post('/checklogin', routes.checklogin);
+
+// Start the app
 app.listen(5672, function() {
     console.log('Listening on port 5672');
 });
