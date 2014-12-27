@@ -25,12 +25,21 @@ exports.checklogin = function(req, res) {
             // I think username not found is caught here, not sure though
             if (err) console.log(err);
 
-            // If passwords match (hashed or not), send to main page
-            if (pass === item.password) {
-                res.send('Yay you logged in! We need a page here or something');
+            // If it found an item
+            if (item) {
+
+                // If passwords match (hashed or not), send to main page
+                if (pass === item.password) {
+                    res.send('Yay you logged in! We need a page here or something');
+                }
+
+                //If passwords don't match, return to login page with error message
+                else {
+                    res.render('main.html', {title: 'Hello World', login: 'failed'});
+                }
             }
 
-            //If passwords don't match, return to login page with error message
+            //If no item was found
             else {
                 res.render('main.html', {title: 'Hello World', login: 'failed'});
             }
