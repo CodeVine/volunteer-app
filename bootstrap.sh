@@ -20,9 +20,3 @@ chmod +x /usr/bin/phantomjs
 npm install -g forever
 npm install -g grunt-cli
 npm install -g karma-cli
-
-# Start app with forever
-cd /home/vagrant/volunteer-app
-chmod 777 -R .npm/
-npm install
-forever start -w server.js
