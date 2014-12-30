@@ -18,5 +18,6 @@ chmod +x /usr/bin/phantomjs
 
 # Install global npm modules
 npm install -g forever
+npm install -g nodemon
 npm install -g grunt-cli
 npm install -g karma-cli

@@ -2,11 +2,14 @@ language: node_js
 node_js:
   - "0.10"
 notifications:
-  webhooks:
-    urls:
-      - http://webhooks.codevine.io/
-    on_failure: always
+  irc:
+    channels:
+      - irc.codevine.io#codevine
     on_success: always
+    on_failure: always
+    template:
+      - "[%{repository_name}] (%{commit}) : %{message} %{build_url}"
+    use_notice: true
 addons:
   sauce_connect:
     username: codevine
