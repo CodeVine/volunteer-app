@@ -13,7 +13,7 @@ exports.checklogin = function(req, res) {
     var pass = req.body.password;
 
     // Open a new db connection
-    MongoClient.connect('mongodb://build1.codevine.io/test', function(err, db) {
+    MongoClient.connect('mongodb://dev.codevine.io/test', function(err, db) {
         // Log error to console
         if (err) console.log(err);
 
